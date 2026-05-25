@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Designing Reliable Systems in Uncertain Environments",
+    "publication": "Systems Journal",
+    "date": "2026-03-18",
+    "summary": "A practical framework for engineering resilient, high-trust systems without overcomplicating architecture.",
+    "url": "https://example.com/reliable-systems",
+    "tags": ["systems", "reliability"],
+    "featured": true
+  },
+  {
+    "title": "Why Clear Writing Improves Technical Leadership",
+    "publication": "Engineering Notes",
+    "date": "2026-01-24",
+    "summary": "How concise technical communication helps teams align, execute, and learn faster.",
+    "url": "https://example.com/clear-writing",
+    "tags": ["leadership", "communication"],
+    "featured": true
+  },
+  {
+    "title": "From Idea to Architecture Review in One Week",
+    "publication": "Architecture Weekly",
+    "date": "2025-12-09",
+    "summary": "A repeatable process for taking early concepts to review-ready architecture decisions.",
+    "url": "https://example.com/architecture-review",
+    "tags": ["architecture", "process"],
+    "featured": false
+  },
+  {
+    "title": "Operational Metrics That Actually Matter",
+    "publication": "Ops Review",
+    "date": "2025-10-02",
+    "summary": "A focused metrics stack for understanding service health, user impact, and delivery risk.",
+    "url": "https://example.com/operational-metrics",
+    "tags": ["operations", "metrics"],
+    "featured": true
+  },
+  {
+    "title": "The Case for Calm Incident Response",
+    "publication": "Platform Dispatch",
+    "date": "2025-08-14",
+    "summary": "Incident response patterns that lower cognitive load and improve recovery outcomes.",
+    "url": "https://example.com/calm-incident-response",
+    "tags": ["incident-response", "operations"],
+    "featured": false
+  },
+  {
+    "title": "Writing Better Technical Postmortems",
+    "publication": "Reliability Digest",
+    "date": "2025-06-11",
+    "summary": "A template-driven approach to postmortems that drives remediation and organizational learning.",
+    "url": "https://example.com/postmortems",
+    "tags": ["postmortem", "reliability"],
+    "featured": false
+  },
+  {
+    "title": "Building Productive Engineering Rituals",
+    "publication": "Team Craft",
+    "date": "2025-04-27",
+    "summary": "Rituals that improve planning quality, ownership, and pace without introducing process drag.",
+    "url": "https://example.com/engineering-rituals",
+    "tags": ["team", "leadership"],
+    "featured": false
+  },
+  {
+    "title": "A Minimalist Approach to Technical Strategy",
+    "publication": "Strategy Signals",
+    "date": "2025-02-03",
+    "summary": "Using clear principles and constraints to make strategic decisions easier to execute.",
+    "url": "https://example.com/technical-strategy",
+    "tags": ["strategy", "systems"],
+    "featured": false
+  }
+]
