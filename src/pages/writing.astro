@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import writingItems from '../content/writing.json';
+
+const allItems = [...writingItems].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
+
+const allTags = [...new Set(allItems.flatMap((item) => item.tags))].sort();
+---
+
+<BaseLayout
+  title="Writing Index — Shivam Hegadi"
+  description="Browse all writing with filtering by tag and date sorting."
+  pathname="/writing"
+>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/">Shivam Hegadi</a>
+      <nav aria-label="Secondary navigation">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="#filters">Filters</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section writing-main">
+    <h1>Writing Index</h1>
+    <p>Browse writing by topic and sort entries by publication date.</p>
+
+    <section id="filters" class="filter-panel" aria-label="Writing filters">
+      <div class="filter-block">
+        <p class="filter-label">Tag</p>
+        <div class="chip-row" role="toolbar" aria-label="Filter by tag">
+          <button class="chip active" data-tag="all" type="button">All</button>
+          {allTags.map((tag) => (
+            <button class="chip" data-tag={tag} type="button">{tag}</button>
+          ))}
+        </div>
+      </div>
+      <label class="filter-label" for="sort-select">Sort by date</label>
+      <select id="sort-select" class="sort-select">
+        <option value="desc">Newest first</option>
+        <option value="asc">Oldest first</option>
+      </select>
+    </section>
+
+    <section aria-label="All writing">
+      <div id="writing-list" class="card-grid writing-grid">
+        {allItems.map((item) => (
+          <article
+            class="card writing-card"
+            data-tags={item.tags.join(',')}
+            data-date={item.date}
+          >
+            <p class="meta">{item.publication} · {new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+            <h2><a href={item.url} target="_blank" rel="noreferrer">{item.title}</a></h2>
+            <p>{item.summary}</p>
+            <ul class="tags" aria-label="Tags">
+              {item.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const chips = Array.from(document.querySelectorAll('.chip'));
+    const sortSelect = document.getElementById('sort-select');
+    const writingList = document.getElementById('writing-list');
+
+    const getCards = () => Array.from(writingList?.querySelectorAll('.writing-card') || []);
+
+    let currentTag = 'all';
+
+    const applyFilters = () => {
+      const cards = getCards();
+      cards.forEach((card) => {
+        const tags = (card.getAttribute('data-tags') || '').split(',');
+        const matches = currentTag === 'all' || tags.includes(currentTag);
+        card.style.display = matches ? '' : 'none';
+      });
+
+      const sorted = cards.sort((a, b) => {
+        const aDate = new Date(a.getAttribute('data-date') || '').getTime();
+        const bDate = new Date(b.getAttribute('data-date') || '').getTime();
+        return sortSelect?.value === 'asc' ? aDate - bDate : bDate - aDate;
+      });
+
+      sorted.forEach((card) => writingList?.appendChild(card));
+    };
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        chips.forEach((item) => item.classList.remove('active'));
+        chip.classList.add('active');
+        currentTag = chip.getAttribute('data-tag') || 'all';
+        applyFilters();
+      });
+    });
+
+    sortSelect?.addEventListener('change', applyFilters);
+  </script>
+</BaseLayout>

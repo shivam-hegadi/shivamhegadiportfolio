@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Social preview image">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#dfeeff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="490" rx="32" fill="#ffffff" stroke="#c9ddfa"/>
+  <text x="130" y="255" fill="#0f2f5f" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="700">Shivam Hegadi</text>
+  <text x="130" y="325" fill="#2456a2" font-family="Inter, Arial, sans-serif" font-size="34">Writing Portfolio</text>
+  <text x="130" y="390" fill="#4f647f" font-family="Inter, Arial, sans-serif" font-size="28">Systems • Engineering Leadership • Technical Strategy</text>
+</svg>
